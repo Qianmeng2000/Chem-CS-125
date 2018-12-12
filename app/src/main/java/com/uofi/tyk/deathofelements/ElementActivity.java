@@ -23,7 +23,7 @@ public class ElementActivity extends Activity {
             case R.id.Be: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.be)); break;
             case R.id.F: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.f)); break;
             case R.id.Mg: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.mg)); break;
-            case R.id.P: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.p)); break;
+            case R.id.P: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.s)); break;
             case R.id.S: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.s)); break;
             case R.id.As: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.as)); break;
             case R.id.Br: videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.br)); break;

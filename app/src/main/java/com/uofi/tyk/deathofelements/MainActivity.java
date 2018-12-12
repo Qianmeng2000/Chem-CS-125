@@ -1,18 +1,15 @@
 package com.uofi.tyk.deathofelements;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 public class MainActivity extends Activity {
 
@@ -38,6 +35,27 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent svc=new Intent(MainActivity.this, BackgroundSoundService.class);
                 stopService(svc);
+            }
+        });
+
+        ImageView share = findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("webpage", "https://stackoverflow.com/questions/19253786/how-to-copy-text-to-clip-board-in-android");
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(MainActivity.this, "Link copied to clipboard", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView info = findViewById(R.id.infor);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -394,7 +412,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","H");
+                intent.putExtra("element_id","Hydrogen");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -405,7 +423,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","He");
+                intent.putExtra("element_id","Helium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -416,7 +434,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Li");
+                intent.putExtra("element_id","Lithium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -427,7 +445,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Be");
+                intent.putExtra("element_id","Beryllium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -439,7 +457,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","B");
+                intent.putExtra("element_id","Boron");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -451,7 +469,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","C");
+                intent.putExtra("element_id","Carbon");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -463,7 +481,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","N");
+                intent.putExtra("element_id","Nitrogen");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -475,7 +493,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","O");
+                intent.putExtra("element_id","Oxygen");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -486,7 +504,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","F");
+                intent.putExtra("element_id","Fluorine");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -498,7 +516,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ne");
+                intent.putExtra("element_id","Neon");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -510,7 +528,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Na");
+                intent.putExtra("element_id","Sodium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -521,7 +539,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Mg");
+                intent.putExtra("element_id","Magnesium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -533,7 +551,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Al");
+                intent.putExtra("element_id","Aluminum");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -545,7 +563,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Si");
+                intent.putExtra("element_id","Silicon");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -556,7 +574,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","P");
+                intent.putExtra("element_id","Phosphorus");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -567,7 +585,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","S");
+                intent.putExtra("element_id","Sulphur");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -579,7 +597,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cl");
+                intent.putExtra("element_id","Chlorine");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -591,7 +609,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ar");
+                intent.putExtra("element_id","Argon");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -603,7 +621,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","K");
+                intent.putExtra("element_id","Potassium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -615,7 +633,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ca");
+                intent.putExtra("element_id","Calcium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -627,7 +645,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Sc");
+                intent.putExtra("element_id","Scandium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -639,7 +657,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ti");
+                intent.putExtra("element_id","Titanium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -651,7 +669,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","V");
+                intent.putExtra("element_id","Vanadium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -663,7 +681,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cr");
+                intent.putExtra("element_id","Chromium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -675,7 +693,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Mn");
+                intent.putExtra("element_id","Manganese");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -687,7 +705,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Fe");
+                intent.putExtra("element_id","Iron");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -699,7 +717,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Co");
+                intent.putExtra("element_id","Cobalt");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -711,7 +729,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ni");
+                intent.putExtra("element_id","Nickel");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -723,7 +741,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cu");
+                intent.putExtra("element_id","Copper");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -735,7 +753,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Zn");
+                intent.putExtra("element_id","Zinc");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -747,7 +765,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ga");
+                intent.putExtra("element_id","Gallium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -759,7 +777,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ge");
+                intent.putExtra("element_id","Germanium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -770,7 +788,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","as");
+                intent.putExtra("element_id","Arsenic");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -782,7 +800,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Se");
+                intent.putExtra("element_id","Selenium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -793,7 +811,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Br");
+                intent.putExtra("element_id","Bromine");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -804,7 +822,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Kr");
+                intent.putExtra("element_id","Krypton");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -816,7 +834,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Rb");
+                intent.putExtra("element_id","Rubidium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -828,7 +846,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Sr");
+                intent.putExtra("element_id","Strontium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -840,7 +858,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Y");
+                intent.putExtra("element_id","Yttrium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -852,7 +870,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Zr");
+                intent.putExtra("element_id","Zirconium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -864,7 +882,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Nb");
+                intent.putExtra("element_id","Niobium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -876,7 +894,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Mo");
+                intent.putExtra("element_id","Molybdenum");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -887,7 +905,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Tc");
+                intent.putExtra("element_id","Technetium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -899,7 +917,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ru");
+                intent.putExtra("element_id","Ruthenium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -911,7 +929,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Rh");
+                intent.putExtra("element_id","RhodiumRhodium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -923,7 +941,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pd");
+                intent.putExtra("element_id","Palladium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -935,7 +953,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ag");
+                intent.putExtra("element_id","Silver");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -947,7 +965,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cd");
+                intent.putExtra("element_id","Cadmium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -959,7 +977,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","In");
+                intent.putExtra("element_id","Indium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -971,7 +989,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Sn");
+                intent.putExtra("element_id","Tin");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -983,7 +1001,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Sb");
+                intent.putExtra("element_id","Antimony");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -995,7 +1013,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Te");
+                intent.putExtra("element_id","Tellurium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1007,7 +1025,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","I");
+                intent.putExtra("element_id","Iodine");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1019,7 +1037,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Xe");
+                intent.putExtra("element_id","Xenon");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1031,7 +1049,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cs");
+                intent.putExtra("element_id","Cesium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1043,7 +1061,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ba");
+                intent.putExtra("element_id","Barium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1055,7 +1073,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Hf");
+                intent.putExtra("element_id","Hafnium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1067,7 +1085,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ta");
+                intent.putExtra("element_id","Tantalum");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1079,7 +1097,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","W");
+                intent.putExtra("element_id","Tungsten");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1091,7 +1109,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Re");
+                intent.putExtra("element_id","Rhenium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1103,7 +1121,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Os");
+                intent.putExtra("element_id","Osmium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1115,7 +1133,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ir");
+                intent.putExtra("element_id","Iridium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1127,7 +1145,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pt");
+                intent.putExtra("element_id","Platinum");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1139,7 +1157,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Au");
+                intent.putExtra("element_id","Gold");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1151,7 +1169,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Hg");
+                intent.putExtra("element_id","Mercury");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1163,7 +1181,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Tl");
+                intent.putExtra("element_id","Thallium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1175,7 +1193,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pb");
+                intent.putExtra("element_id","Lead");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1187,7 +1205,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Bi");
+                intent.putExtra("element_id","Bismuth");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1198,7 +1216,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Po");
+                intent.putExtra("element_id","Polonium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1209,7 +1227,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","At");
+                intent.putExtra("element_id","Astatine");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1221,7 +1239,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Rn");
+                intent.putExtra("element_id","Radon");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1232,7 +1250,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Fr");
+                intent.putExtra("element_id","Francium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1243,7 +1261,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ra");
+                intent.putExtra("element_id","Radium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1254,7 +1272,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Rf");
+                intent.putExtra("element_id","Rutherfordium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1265,7 +1283,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Db");
+                intent.putExtra("element_id","Dubnium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1276,7 +1294,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Sg");
+                intent.putExtra("element_id","Seaborgium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1287,7 +1305,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Bh");
+                intent.putExtra("element_id","Bohrium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1298,7 +1316,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Hs");
+                intent.putExtra("element_id","Hassium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1309,7 +1327,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Mt");
+                intent.putExtra("element_id","Meitnerium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1320,7 +1338,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ds");
+                intent.putExtra("element_id","Darmstadtium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1331,7 +1349,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Rg");
+                intent.putExtra("element_id","Roentgenium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1342,7 +1360,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cn");
+                intent.putExtra("element_id","Copernicium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1353,7 +1371,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Nh");
+                intent.putExtra("element_id","Nihonium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1364,7 +1382,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Fl");
+                intent.putExtra("element_id","Flerovium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1375,7 +1393,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Mc");
+                intent.putExtra("element_id","Moscovium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1386,7 +1404,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Lv");
+                intent.putExtra("element_id","Livermorium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1397,7 +1415,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ts");
+                intent.putExtra("element_id","Tennessine");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1408,7 +1426,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Og");
+                intent.putExtra("element_id","Oganesson");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1420,7 +1438,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ce");
+                intent.putExtra("element_id","Cerium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1432,7 +1450,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pr");
+                intent.putExtra("element_id","Praseodymium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1444,7 +1462,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Nd");
+                intent.putExtra("element_id","Neodymium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1456,7 +1474,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pm");
+                intent.putExtra("element_id","Promethium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1468,7 +1486,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Sm");
+                intent.putExtra("element_id","Samarium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1480,7 +1498,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Eu");
+                intent.putExtra("element_id","Europium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1492,7 +1510,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Gd");
+                intent.putExtra("element_id","Gadolinium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1504,7 +1522,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Tb");
+                intent.putExtra("element_id","Terbium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1516,7 +1534,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Dy");
+                intent.putExtra("element_id","Dysprosium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1528,7 +1546,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Ho");
+                intent.putExtra("element_id","Holmium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1540,7 +1558,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Er");
+                intent.putExtra("element_id","Erbium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1552,7 +1570,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Tm");
+                intent.putExtra("element_id","Thulium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1564,7 +1582,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Yb");
+                intent.putExtra("element_id","Ytterbium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1576,7 +1594,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Lu");
+                intent.putExtra("element_id","Lutetium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1588,7 +1606,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Th");
+                intent.putExtra("element_id","Thorium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1600,7 +1618,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pa");
+                intent.putExtra("element_id","Protactinium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1612,7 +1630,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","U");
+                intent.putExtra("element_id","Uranium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1624,7 +1642,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Np");
+                intent.putExtra("element_id","Neptunium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1636,7 +1654,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Pu");
+                intent.putExtra("element_id","Plutonium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1648,7 +1666,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Am");
+                intent.putExtra("element_id","Americium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1660,7 +1678,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cm");
+                intent.putExtra("element_id","Curium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1672,7 +1690,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Bk");
+                intent.putExtra("element_id","Berkelium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1684,7 +1702,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Cf");
+                intent.putExtra("element_id","Californium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1696,7 +1714,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Es");
+                intent.putExtra("element_id","Einsteinium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1708,7 +1726,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Fm");
+                intent.putExtra("element_id","Fermium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1720,7 +1738,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Md");
+                intent.putExtra("element_id","Mendelevium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1732,7 +1750,7 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","No");
+                intent.putExtra("element_id","Nobelium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
@@ -1744,12 +1762,38 @@ public class MainActivity extends Activity {
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WikiActivity.class);
-                intent.putExtra("element_id","Lr");
+                intent.putExtra("element_id","Lawrencium");
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
             }
         });
+
+        TextView mLa = findViewById(R.id.La);
+        mLa.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WikiActivity.class);
+                intent.putExtra("element_id","Lanthanum");
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                return true;
+            }
+        });
+
+        TextView mAc = findViewById(R.id.Ac);
+        mAc.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WikiActivity.class);
+                intent.putExtra("element_id","Actinium");
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                return true;
+            }
+        });
+
+
     }
 
 }

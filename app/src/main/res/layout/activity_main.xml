@@ -938,14 +938,15 @@
             android:textSize="24dp" />
 
         <TextView
+            android:id="@+id/La"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_margin="3dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="57-71"
+            android:text="La"
             android:textColor="@android:color/black"
-            android:textSize="10dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/Hf"
@@ -1135,14 +1136,15 @@
             android:textSize="24dp" />
 
         <TextView
+            android:id="@+id/Ac"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_margin="3dp"
             android:background="@android:color/holo_orange_dark"
             android:gravity="center"
-            android:text="89-103"
+            android:text="Ac"
             android:textColor="@android:color/black"
-            android:textSize="10dp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/Rf"
@@ -1653,7 +1655,7 @@
             android:gravity="center" />
 
         <ImageView
-            android:id="@+id/info"
+            android:id="@+id/infor"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_margin="3dp"
